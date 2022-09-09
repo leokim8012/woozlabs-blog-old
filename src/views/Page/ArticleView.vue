@@ -14,7 +14,7 @@
 
         <v-col cols="12">
           <v-card class="transparent" flat>
-            <v-card-text> 여기서부턴 컨텐츠 </v-card-text>
+            <v-card-text> <article-content-viewer /></v-card-text>
           </v-card>
         </v-col>
 
@@ -43,8 +43,9 @@
 import { Component, Mixins, Prop } from "vue-property-decorator";
 import RouterPush from "@/mixins/routerPush";
 import Article from "@/types/article";
+import ArticleContentViewer from "@/containers/Articles/ArticleContentViewer.vue";
 @Component({
-  components: {},
+  components: { ArticleContentViewer },
 })
 export default class ArticleView extends Mixins(RouterPush) {
   @Prop({

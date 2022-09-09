@@ -27,6 +27,10 @@ $title-font: "VisbyRoundCF-Heavy";
   font-family: $body-font-family, sans-serif !important;
 }
 
+.v-application code {
+  background-color: var(--v-surface-base) !important;
+}
+
 $border-radius-root: 16px;
 $rounded: (
   "lg": $border-radius-root * 3,

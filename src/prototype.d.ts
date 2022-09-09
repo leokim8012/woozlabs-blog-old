@@ -8,7 +8,7 @@ declare module "vue-feather";
 // import firebase from "firebase/compat/app";
 // import firebaseAuth from "firebase/auth";
 import dayjs from "dayjs";
-
+import VueKatex from "vue-katex";
 declare module "vue/types/vue" {
   interface Vue {
     // $firebase: typeof firebase;
