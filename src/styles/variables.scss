@@ -16,7 +16,12 @@ $title-font: "VisbyRoundCF-Heavy";
 .v-application {
   & .display-1,
   .headline,
-  .title {
+  .title,
+  .subtitle-1,
+  .subtitle-2,
+  .body-1,
+  .body-2,
+  .caption {
     font-family: $body-font-family, sans-serif !important;
   }
   font-family: $body-font-family, sans-serif !important;
@@ -43,13 +48,14 @@ $card-actions-padding: 0px;
 $card-title-word-break: "keep-all";
 $card-link-focus-opacity: 0;
 
-$container-max-widths: 900px;
+$container-max-widths: 1280px;
 
 $container-max-widths: map-deep-merge(
   (
-    "md": map-get($grid-breakpoints, "md") * 0.9375,
-    "lg": 900px,
-    "xl": 900px,
+    // "md": map-get($grid-breakpoints, "md") * 0.9375,
+    "md": 1280px,
+    "lg": 1280px,
+    "xl": 1280px
   ),
   $container-max-widths
 );

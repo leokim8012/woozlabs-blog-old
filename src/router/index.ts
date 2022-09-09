@@ -10,8 +10,20 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: "/page",
-    component: () => import("@/views/Home/Index.vue"),
-    children: [],
+    component: () => import("@/views/Page/Index.vue"),
+    children: [
+      {
+        path: "",
+        name: "Home",
+        component: () => import("@/views/Page/HomeView.vue"),
+      },
+      {
+        path: "/article/:id",
+        name: "Article",
+        component: () => import("@/views/Page/ArticleView.vue"),
+        props: (route) => ({ id: route.params.id }),
+      },
+    ],
   },
   {
     path: "*",
