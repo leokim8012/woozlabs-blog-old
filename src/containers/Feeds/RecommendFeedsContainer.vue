@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="12">
         <v-card class="transparent" flat>
-          <v-card-title class="pa-0">Recommended Articals</v-card-title>
+          <v-card-title class="pa-0">Recommended Articles</v-card-title>
         </v-card>
       </v-col>
     </v-row>

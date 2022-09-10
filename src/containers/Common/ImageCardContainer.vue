@@ -1,8 +1,9 @@
 <template>
-  <v-card class="rounded-xl" flat :min-height="data.minHeight ?? 320">
+  <v-card class="rounded-xl" flat>
     <v-img
-      :min-height="data.minHeight ?? 320"
-      :max-height="data.maxHeight ?? 400"
+      :aspect-ratio="data.aspectRatio ?? 16 / 10"
+      :min-height="data.minHeight ?? 120"
+      :max-height="data.maxHeight ?? 360"
       :src="data.src"
     />
   </v-card>
@@ -13,6 +14,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 
 interface ImageCardInterface {
   src?: string;
+  aspectRatio?: number;
   minHeight?: number;
   maxHeight?: number;
 }
@@ -20,7 +22,7 @@ interface ImageCardInterface {
 @Component
 export default class ImageCardContainer extends Vue {
   @Prop({ required: true })
-  data: ImageCardInterface = {};
+  data!: ImageCardInterface;
 }
 </script>
 

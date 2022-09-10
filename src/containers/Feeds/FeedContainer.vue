@@ -1,11 +1,12 @@
 <template>
   <v-card
-    @click="routerPush('Article', 'Test')"
+    @click="routerPush('Article', (Math.random() * 1000).toFixed(0).toString())"
     class="transparent article-card"
     :ripple="false"
     flat
   >
     <image-card-container
+      class="article-image"
       :data="{
         src: 'https://core-cdn-fe.toss.im/image/optimize/?src=https://wp-blog.toss.im/wp-content/uploads/2022/09/img-insurance-interview.jpeg?&w=1920&q=75',
       }"

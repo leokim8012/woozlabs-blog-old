@@ -72,6 +72,7 @@
 }
 .notion-gray_background {
   background-color: rgb(235, 236, 237);
+  /* background-color: var(--v-surface-base); */
 }
 .notion-red_background_co {
   background-color: rgb(251, 228, 228, 0.3);
@@ -98,7 +99,9 @@
   background-color: rgb(233, 229, 227, 0.3);
 }
 .notion-gray_background_co {
-  background-color: rgb(235, 236, 237, 0.3);
+  /* background-color: rgb(235, 236, 237, 0.3); */
+
+  background-color: var(--v-surface-base);
 }
 
 .notion b {

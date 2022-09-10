@@ -10,6 +10,7 @@ declare namespace Article {
     createdAt?: Date;
     description?: string;
     articleId: string;
+    views: number;
   }
 }
 

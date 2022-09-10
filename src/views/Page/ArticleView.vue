@@ -7,7 +7,7 @@
             <v-card-title class="display-1"> {{ article.title }} </v-card-title>
             <v-card-subtitle class="subtitle-1">
               {{ $dayjs(article.createdAt).format("YY. MM. DD") }}ㆍby
-              {{ article.author }}
+              {{ article.author }}ㆍViews {{ article.views }}
             </v-card-subtitle>
           </v-card>
         </v-col>
@@ -33,7 +33,13 @@
       </v-row>
 
       <v-row>
-        <v-divider></v-divider>
+        <v-col cols="12"> <v-divider></v-divider></v-col>
+      </v-row>
+
+      <v-row>
+        <v-col>
+          <article-recommend-container />
+        </v-col>
       </v-row>
     </v-container>
   </v-container>
@@ -44,8 +50,9 @@ import { Component, Mixins, Prop } from "vue-property-decorator";
 import RouterPush from "@/mixins/routerPush";
 import Article from "@/types/article";
 import ArticleContentViewer from "@/containers/Articles/ArticleContentViewer.vue";
+import ArticleRecommendContainer from "../../containers/Articles/ArticleRecommendContainer.vue";
 @Component({
-  components: { ArticleContentViewer },
+  components: { ArticleContentViewer, ArticleRecommendContainer },
 })
 export default class ArticleView extends Mixins(RouterPush) {
   @Prop({
@@ -62,6 +69,7 @@ export default class ArticleView extends Mixins(RouterPush) {
     description:
       "18살, 1인 쇼핑몰 사장입니다 안녕하세요.\n 문구류 쇼핑몰을 운영하고 있는 옷들입니다. 스티커, 마스킹 테이프와 같은 다꾸(다이어리 꾸미기)용품을 포함한 문구류를 판매하고 있어요. 제가 빈티지",
     articleId: "",
+    views: 12314,
   };
 }
 </script>
