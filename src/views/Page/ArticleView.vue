@@ -1,5 +1,14 @@
 <template>
   <v-container class="base-container">
+    <v-progress-linear
+      :value="readProgress"
+      height="2"
+      color="secondary"
+      top
+      style="margin-top: 64px"
+      background-color="transparent"
+      fixed
+    />
     <v-container class="article-container">
       <v-row>
         <v-col cols="12">
@@ -14,7 +23,9 @@
 
         <v-col cols="12">
           <v-card class="transparent" flat>
-            <v-card-text> <article-content-viewer /></v-card-text>
+            <v-card-text>
+              <article-content-viewer ref="viewer" @onIntersect="onIntersect"
+            /></v-card-text>
           </v-card>
         </v-col>
 
@@ -71,6 +82,36 @@ export default class ArticleView extends Mixins(RouterPush) {
     articleId: "",
     views: 12314,
   };
+
+  offsetTop = 0;
+  postHeight = 0;
+  get readProgress(): number {
+    return (this.offsetTop / this.postHeight) * 100;
+  }
+
+  mounted() {
+    this._initialize();
+  }
+
+  _initialize() {
+    window.addEventListener(
+      "scroll",
+      () => {
+        this.offsetTop = window.pageYOffset;
+      },
+      false,
+    );
+  }
+
+  onIntersect(entries: Element) {
+    this.postHeight = entries[0].target.clientHeight;
+  }
+
+  beforeDestroy() {
+    window.removeEventListener("scroll", () => {
+      return;
+    });
+  }
 }
 </script>
 

@@ -1,7 +1,9 @@
 <template>
   <div>
     <v-skeleton-loader v-if="!isLoaded" type="article" class="transparent" />
-    <NotionRenderer v-else :blockMap="blockMap" prism katex />
+    <div v-else v-intersect="onIntersect">
+      <NotionRenderer :blockMap="blockMap" prism katex />
+    </div>
   </div>
 </template>
 
@@ -40,6 +42,10 @@ export default class ArticleContentViewer extends Vue {
     var replaceNotion = url.replace("https://www.notion.so/", "");
     var pushURL = replaceNotion;
     return pushURL;
+  }
+
+  onIntersect(entries: Element) {
+    this.$emit("onIntersect", entries);
   }
 }
 </script>

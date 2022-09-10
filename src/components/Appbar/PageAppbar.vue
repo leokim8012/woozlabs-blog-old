@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar flat app>
+  <v-app-bar height="64" flat app>
     <v-app-bar-title>
       <v-img
         style="cursor: pointer"
