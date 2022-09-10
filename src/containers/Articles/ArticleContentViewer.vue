@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-skeleton-loader v-if="!isLoaded" type="article" class="" />
+    <v-skeleton-loader v-if="!isLoaded" type="article" />
     <div v-else v-intersect="onIntersect">
       <NotionRenderer :blockMap="blockMap" prism katex />
     </div>

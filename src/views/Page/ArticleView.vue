@@ -11,35 +11,35 @@
     />
     <v-container v-if="isLoaded" class="article-container">
       <v-row>
-        <v-col cols="12">
-          <v-card class="transparent" flat>
-            <v-card-title class="display-1"> {{ article.title }} </v-card-title>
-            <v-card-subtitle class="subtitle-1">
-              {{ $dayjs(article.createdAt).format("YY. MM. DD") }}ㆍby
-              {{ article.author }}ㆍViews {{ article.views }}
-            </v-card-subtitle>
-          </v-card>
-        </v-col>
-
-        <v-col cols="12">
+        <v-card class="transparent" flat>
+          <v-card-title class="display-1"> {{ article.title }} </v-card-title>
+          <v-card-subtitle class="subtitle-1">
+            {{ $dayjs(article.createdAt).format("YY. MM. DD") }}ㆍby
+            {{ article.author }}ㆍViews {{ article.views }}
+          </v-card-subtitle>
+        </v-card>
+      </v-row>
+      <v-row>
+        <v-col class="pa-0" cols="12">
           <v-card class="transparent" flat>
             <v-card-text>
               <article-content-viewer
                 :notionURL="article.articleId"
                 ref="viewer"
                 @onIntersect="onIntersect"
-            /></v-card-text>
-          </v-card>
-        </v-col>
-
+              />
+            </v-card-text> </v-card
+        ></v-col>
+      </v-row>
+      <v-row>
         <v-col cols="6" class="text-start">
-          <v-btn class="rounded-lg" large :ripple="false">
+          <v-btn class="rounded-lg" depressed large :ripple="false">
             <span class="mr-2"><vue-feather size="16" type="share" /></span>
             공유
           </v-btn>
         </v-col>
         <v-col cols="6" class="text-end">
-          <v-btn class="rounded-lg" large :ripple="false">
+          <v-btn class="rounded-lg" depressed large :ripple="false">
             <span class="mr-2"><vue-feather size="16" type="mail" /></span>
             의견
           </v-btn>
@@ -51,17 +51,14 @@
       </v-row>
 
       <v-row>
-        <v-col>
-          <article-recommend-container />
-        </v-col>
+        <article-recommend-container />
       </v-row>
     </v-container>
 
     <v-container v-else class="article-container">
-      <v-skeleton-loader type="list-item" />
+      <v-skeleton-loader class="py-4" type="sentences" />
       <v-skeleton-loader type="image" />
-      <v-skeleton-loader type="list-item" />
-      <v-skeleton-loader type="article" />
+      <v-skeleton-loader class="py-4" type="paragraph" />
     </v-container>
   </v-container>
 </template>
@@ -105,7 +102,6 @@ export default class ArticleView extends Mixins(RouterPush) {
       },
       false,
     );
-
     this.isLoaded = true;
   }
 

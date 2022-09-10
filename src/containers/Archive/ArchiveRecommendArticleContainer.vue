@@ -1,12 +1,12 @@
 <template>
-  <v-card v-if="recommendedArticles.length > 0" class="transparent" flat>
-    <v-container fluid>
+  <v-card class="transparent" flat>
+    <v-card-title>Recommended Articles</v-card-title>
+    <v-container v-if="recommendedArticles.length > 0" fluid>
       <v-row v-if="recommendedArticles.length > 0">
-        <v-col cols="12">
-          <div class="font-weight-bold title">Recommended Article</div>
-        </v-col>
         <v-col
-          cols="6"
+          cols="12"
+          sm="6"
+          md="4"
           v-for="article in recommendedArticles"
           :key="article.id"
         >
@@ -15,15 +15,13 @@
       </v-row>
       <!-- <v-row v-else>Not prepared yet!</v-row> -->
     </v-container>
-
-    <!-- <v-container fluid>
+    <v-container v-else fluid>
       <v-row>
-        <v-col cols="12"> <div class="font-weight-bold">Series</div> </v-col>
-        <v-col cols="6" v-for="i in 4" :key="i">
-          <feed-container />
+        <v-col class="" cols="12" sm="6" md="4">
+          <v-skeleton-loader type="card" />
         </v-col>
       </v-row>
-    </v-container> -->
+    </v-container>
   </v-card>
 </template>
 
@@ -36,7 +34,7 @@ import * as articleAPI from "@/api/Contents/Articles";
 @Component({
   components: { FeedCardContainer },
 })
-export default class ArticleRecommendContainer extends Vue {
+export default class ArchiveRecommendArticleContainer extends Vue {
   isLoaded = false;
   recommendedArticles: Array<ArticleBaseInterface> = [];
 

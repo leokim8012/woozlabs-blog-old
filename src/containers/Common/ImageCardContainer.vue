@@ -4,6 +4,7 @@
       :aspect-ratio="data.aspectRatio ?? 16 / 10"
       :min-height="data.minHeight ?? 120"
       :max-height="data.maxHeight ?? 360"
+      :min-width="data.minWidth ?? 0"
       :src="data.src"
     />
   </v-card>
@@ -17,6 +18,7 @@ interface ImageCardInterface {
   aspectRatio?: number;
   minHeight?: number;
   maxHeight?: number;
+  minWidth?: number;
 }
 
 @Component

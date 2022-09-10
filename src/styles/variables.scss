@@ -32,6 +32,8 @@ $title-font: "VisbyRoundCF-Heavy";
 }
 
 $border-radius-root: 16px;
+$skeleton-loader-border-radius: 8px;
+
 $rounded: (
   "lg": $border-radius-root * 3,
 );

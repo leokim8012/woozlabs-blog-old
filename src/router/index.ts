@@ -23,6 +23,11 @@ const routes: Array<RouteConfig> = [
         component: () => import("@/views/Page/ArticleView.vue"),
         props: (route) => ({ id: route.params.id }),
       },
+      {
+        path: "/archive",
+        name: "Archive",
+        component: () => import("@/views/Page/ArchiveView.vue"),
+      },
     ],
   },
   {

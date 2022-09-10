@@ -9,6 +9,7 @@ export default new Vuetify({
   theme: {
     default: "dark",
     dark: true,
+
     options: {
       customProperties: true,
     },
@@ -33,7 +34,7 @@ export default new Vuetify({
         secondary: "#637AB0",
 
         surface: "#1E1E1E",
-        onSurface: "#000",
+        onSurface: "#fff",
         background: "#000",
         onBackground: "#fff",
 

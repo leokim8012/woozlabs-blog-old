@@ -3,6 +3,11 @@
     <v-app-bar-title>
       <v-img
         style="cursor: pointer"
+        :style="
+          $vuetify.theme.dark
+            ? 'filter :brightness(1);'
+            : 'filter: brightness(0);'
+        "
         @click="routerPush('Home')"
         contain
         max-width="111"
@@ -11,8 +16,17 @@
     </v-app-bar-title>
     <v-spacer></v-spacer>
 
-    <v-btn class="rounded-lg" text :ripple="false">Archive</v-btn>
-    <v-btn icon :ripple="false"><vue-feather size="18" type="search" /></v-btn>
+    <v-btn
+      class="rounded-lg"
+      @click="routerPush('Archive')"
+      icon
+      :ripple="false"
+    >
+      <vue-feather type="archive" />
+    </v-btn>
+    <v-btn class="rounded-lg" icon :ripple="false">
+      <vue-feather size="20" type="search" />
+    </v-btn>
   </v-app-bar>
 </template>
 

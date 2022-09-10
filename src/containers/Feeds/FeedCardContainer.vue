@@ -31,7 +31,7 @@ import { ArticleBaseInterface } from "@/types/article";
 @Component({
   components: { ImageCardContainer },
 })
-export default class FeedContainer extends Mixins(RouterPush) {
+export default class FeedCardContainer extends Mixins(RouterPush) {
   @Prop({ required: true })
   data!: ArticleBaseInterface;
 }

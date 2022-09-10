@@ -7,32 +7,39 @@
         </v-card>
       </v-col>
     </v-row>
-
     <v-row v-if="recentFeeds.length > 0">
       <v-col cols="12" v-for="feed in recentFeeds" :key="feed.id">
-        <feed-container :data="feed" />
+        <feed-card-container :data="feed" />
       </v-col>
     </v-row>
     <v-row v-else>
-      <v-col cols="12">No Articles found!</v-col>
+      <v-col v-if="!isLoaded" cols="12">
+        <v-skeleton-loader type="image" />
+        <v-skeleton-loader class="py-4" type="paragraph" />
+      </v-col>
+      <v-col v-else cols="12">No Articles found!</v-col>
     </v-row>
   </v-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import FeedContainer from "@/containers/Feeds/FeedContainer.vue";
+import FeedCardContainer from "@/containers/Feeds/FeedCardContainer.vue";
 import { ArticleBaseInterface } from "@/types/article";
 
 import * as articleAPI from "@/api/Contents/Articles";
 @Component({
-  components: { FeedContainer },
+  components: { FeedCardContainer },
 })
 export default class RecentFeedsContainer extends Vue {
   recentFeeds: Array<ArticleBaseInterface> = [];
 
-  mounted() {
-    this._initialize();
+  isLoaded = false;
+
+  async mounted() {
+    this.isLoaded = false;
+    await this._initialize();
+    this.isLoaded = true;
   }
 
   async _initialize() {
