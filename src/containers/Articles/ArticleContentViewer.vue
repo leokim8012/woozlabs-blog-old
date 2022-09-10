@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-skeleton-loader v-if="!isLoaded" type="article" class="transparent" />
+    <v-skeleton-loader v-if="!isLoaded" type="article" class="" />
     <div v-else v-intersect="onIntersect">
       <NotionRenderer :blockMap="blockMap" prism katex />
     </div>
@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 
 import "prismjs";
 import "prismjs/themes/prism.css";
@@ -30,7 +30,9 @@ export default class ArticleContentViewer extends Vue {
   // cc0a09e33dda4d5f929d885dcd178613
   // 33147395b7524137b41a6f3cd60d025a
   // 3f68d732af1d4296bfd1046cc272d343
-  notionURL = "33147395b7524137b41a6f3cd60d025a";
+
+  @Prop({ required: true })
+  notionURL!: string;
 
   async mounted() {
     this.isLoaded = false;

@@ -9,6 +9,7 @@
     "firebase:host-deploy": "vue-cli-service build && firebase deploy --only hosting:blog"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "core-js": "^3.8.3",
     "dayjs": "^1.11.5",
     "feather-icons": "^4.29.0",

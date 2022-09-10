@@ -9,7 +9,7 @@
       background-color="transparent"
       fixed
     />
-    <v-container class="article-container">
+    <v-container v-if="isLoaded" class="article-container">
       <v-row>
         <v-col cols="12">
           <v-card class="transparent" flat>
@@ -24,7 +24,10 @@
         <v-col cols="12">
           <v-card class="transparent" flat>
             <v-card-text>
-              <article-content-viewer ref="viewer" @onIntersect="onIntersect"
+              <article-content-viewer
+                :notionURL="article.articleId"
+                ref="viewer"
+                @onIntersect="onIntersect"
             /></v-card-text>
           </v-card>
         </v-col>
@@ -53,6 +56,13 @@
         </v-col>
       </v-row>
     </v-container>
+
+    <v-container v-else class="article-container">
+      <v-skeleton-loader type="list-item" />
+      <v-skeleton-loader type="image" />
+      <v-skeleton-loader type="list-item" />
+      <v-skeleton-loader type="article" />
+    </v-container>
   </v-container>
 </template>
 
@@ -61,7 +71,9 @@ import { Component, Mixins, Prop } from "vue-property-decorator";
 import RouterPush from "@/mixins/routerPush";
 import Article from "@/types/article";
 import ArticleContentViewer from "@/containers/Articles/ArticleContentViewer.vue";
-import ArticleRecommendContainer from "../../containers/Articles/ArticleRecommendContainer.vue";
+import ArticleRecommendContainer from "@/containers/Articles/ArticleRecommendContainer.vue";
+
+import * as articleAPI from "@/api/Contents/Articles";
 @Component({
   components: { ArticleContentViewer, ArticleRecommendContainer },
 })
@@ -71,18 +83,8 @@ export default class ArticleView extends Mixins(RouterPush) {
   })
   id!: string;
 
-  article: Article.ArticleBaseInterface = {
-    id: "",
-    createdAt: new Date(),
-    imageURL: "",
-    title: "빨리 돈을 벌고 싶어 자퇴를 선택했어요",
-    author: "My Money Story",
-    description:
-      "18살, 1인 쇼핑몰 사장입니다 안녕하세요.\n 문구류 쇼핑몰을 운영하고 있는 옷들입니다. 스티커, 마스킹 테이프와 같은 다꾸(다이어리 꾸미기)용품을 포함한 문구류를 판매하고 있어요. 제가 빈티지",
-    articleId: "",
-    views: 12314,
-  };
-
+  isLoaded = false;
+  article!: Article.ArticleBaseInterface;
   offsetTop = 0;
   postHeight = 0;
   get readProgress(): number {
@@ -93,7 +95,9 @@ export default class ArticleView extends Mixins(RouterPush) {
     this._initialize();
   }
 
-  _initialize() {
+  async _initialize() {
+    this.isLoaded = false;
+    this.article = await articleAPI.getArticleById(this.id);
     window.addEventListener(
       "scroll",
       () => {
@@ -101,6 +105,8 @@ export default class ArticleView extends Mixins(RouterPush) {
       },
       false,
     );
+
+    this.isLoaded = true;
   }
 
   onIntersect(entries: Element) {

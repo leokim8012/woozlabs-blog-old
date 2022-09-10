@@ -8,10 +8,13 @@
       </v-col>
     </v-row>
 
-    <v-row>
-      <v-col cols="12" v-for="i in 3" :key="i">
-        <feed-container />
+    <v-row v-if="recommendFeeds.length > 0">
+      <v-col cols="12" v-for="feed in recommendFeeds" :key="feed">
+        <feed-container :data="feed" />
       </v-col>
+    </v-row>
+    <v-row v-else>
+      <v-col cols="12">No Articles found!</v-col>
     </v-row>
   </v-container>
 </template>
@@ -19,10 +22,13 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import FeedContainer from "@/containers/Feeds/FeedContainer.vue";
+import { ArticleBaseInterface } from "@/types/article";
 @Component({
   components: { FeedContainer },
 })
-export default class RecentFeedsContainer extends Vue {}
+export default class RecommendFeedsContainer extends Vue {
+  recommendFeeds: Array<ArticleBaseInterface> = [];
+}
 </script>
 
 <style scoped></style>

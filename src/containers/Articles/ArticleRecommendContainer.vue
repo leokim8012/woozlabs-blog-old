@@ -1,14 +1,15 @@
 <template>
-  <v-card class="transparent" flat>
+  <v-card v-if="recommendedArticles.length > 0" class="transparent" flat>
     <v-card-title>Recommended Contents</v-card-title>
 
     <v-container fluid>
-      <v-row>
+      <v-row v-if="recommendedArticles.length > 0">
         <v-col cols="12"> <div class="font-weight-bold">Article</div> </v-col>
-        <v-col cols="6" v-for="i in 4" :key="i">
-          <feed-container />
+        <v-col cols="6" v-for="article in recommendedArticles" :key="article">
+          <feed-container :data="article" />
         </v-col>
       </v-row>
+      <!-- <v-row v-else>Not prepared yet!</v-row> -->
     </v-container>
 
     <!-- <v-container fluid>
@@ -25,18 +26,15 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import FeedContainer from "@/containers/Feeds/FeedContainer.vue";
+import { ArticleBaseInterface } from "@/types/article";
 
 @Component({
   components: { FeedContainer },
 })
 export default class ArticleRecommendContainer extends Vue {
-  blockMap = null;
-
   isLoaded = false;
-  // cc0a09e33dda4d5f929d885dcd178613
-  // 33147395b7524137b41a6f3cd60d025a
-  // 3f68d732af1d4296bfd1046cc272d343
-  notionURL = "33147395b7524137b41a6f3cd60d025a";
+
+  recommendedArticles: Array<ArticleBaseInterface> = [];
 
   async mounted() {
     this.isLoaded = false;
