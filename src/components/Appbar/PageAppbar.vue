@@ -6,9 +6,13 @@
         @click="routerPush('Home')"
         contain
         max-width="111"
-        :src="require('@/assets/icons/logo.svg')"
+        :src="require('@/assets/logo.svg')"
       />
     </v-app-bar-title>
+    <v-spacer></v-spacer>
+
+    <v-btn class="rounded-lg" text :ripple="false">Archive</v-btn>
+    <v-btn icon :ripple="false"><vue-feather size="18" type="search" /></v-btn>
   </v-app-bar>
 </template>
 
