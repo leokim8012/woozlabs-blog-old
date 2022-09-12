@@ -11,7 +11,7 @@
         src: data.imageUrl,
       }"
     />
-    <v-card-subtitle class="pb-0 px-0">Category</v-card-subtitle>
+    <v-card-subtitle class="pb-0 px-0">{{ data.category }}</v-card-subtitle>
     <v-card-title class="article-title font-weight-bold pt-0 px-0">
       {{ data.title }}
     </v-card-title>

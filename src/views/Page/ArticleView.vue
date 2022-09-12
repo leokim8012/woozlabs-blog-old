@@ -15,7 +15,7 @@
           <v-card-title class="display-1"> {{ article.title }} </v-card-title>
           <v-card-subtitle class="subtitle-1">
             {{ $dayjs(article.createdAt).format("YY. MM. DD") }}ㆍby
-            {{ article.author }}ㆍViews {{ article.views }}
+            {{ article.author }}
           </v-card-subtitle>
         </v-card>
       </v-row>
@@ -96,7 +96,7 @@ export default class ArticleView extends Mixins(RouterPush) {
     this.isLoaded = false;
     try {
       this.article = await articleAPI.getArticleById(this.id);
-      console.log(this.article);
+
       window.addEventListener(
         "scroll",
         () => {

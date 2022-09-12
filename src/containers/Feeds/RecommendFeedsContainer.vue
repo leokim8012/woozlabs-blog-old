@@ -46,7 +46,7 @@ export default class RecommendFeedsContainer extends Vue {
   async _initialize() {
     try {
       this.recommendFeeds = await articleAPI.getRecommendArticles({
-        limit: 3,
+        limit: 6,
       });
     } catch (e) {
       console.log(e);

@@ -508,7 +508,7 @@ img.notion-page-icon {
   caret-color: rgb(55, 53, 47);
   font-size: 14px;
   line-height: 1.4;
-  color: rgba(55, 53, 47, 0.6);
+  color: var(--v-onBackground-darken3);
 }
 
 .notion-callout {

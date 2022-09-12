@@ -6,7 +6,9 @@
     flat
   >
     <v-list-item-content>
-      <v-list-item-subtitle class="pb-0 px-0">Category</v-list-item-subtitle>
+      <v-list-item-subtitle class="pb-0 px-0">
+        {{ data.category }}
+      </v-list-item-subtitle>
       <v-list-item-title
         style="white-space: normal"
         class="article-title font-weight-bold pt-0 px-0"
