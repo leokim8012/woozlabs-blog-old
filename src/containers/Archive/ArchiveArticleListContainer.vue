@@ -13,12 +13,12 @@
         />
       </v-btn-toggle>
     </v-card-title>
-    <v-container v-if="recommendedArticles.length > 0" fluid>
+    <v-container v-if="articles.length > 0" fluid>
       <v-row>
         <v-col cols="12" class="pa-0">
           <v-list class="transparent" flat three-line :ripple="false">
             <feed-list-container
-              v-for="article in recommendedArticles"
+              v-for="article in articles"
               :key="article.id"
               :data="article"
           /></v-list>
@@ -55,7 +55,7 @@ import * as articleAPI from "@/api/Contents/Articles";
 })
 export default class ArchiveRecommendArticleContainer extends Vue {
   isLoaded = false;
-  recommendedArticles: Array<ArticleBaseInterface> = [];
+  articles: Array<ArticleBaseInterface> = [];
 
   categories = ["All", "Test1", "Test2", "Test3"];
   currentCategory = "All";
@@ -63,7 +63,7 @@ export default class ArchiveRecommendArticleContainer extends Vue {
 
   async mounted() {
     this.isLoaded = false;
-    this.recommendedArticles = await articleAPI.getArticles({
+    this.articles = await articleAPI.getArticleCollection({
       limit: 6,
       offset: 0,
       order: "createdAt",

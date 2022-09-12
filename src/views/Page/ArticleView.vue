@@ -96,6 +96,7 @@ export default class ArticleView extends Mixins(RouterPush) {
     this.isLoaded = false;
     try {
       this.article = await articleAPI.getArticleById(this.id);
+      console.log(this.article);
       window.addEventListener(
         "scroll",
         () => {

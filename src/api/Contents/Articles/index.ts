@@ -26,7 +26,7 @@ interface GetArticlesInterface {
   sort: "desc" | "asc";
   category?: string;
 }
-export const getArticles = async (
+export const getArticleCollection = async (
   options: GetArticlesInterface,
 ): Promise<Array<ArticleBaseInterface>> => {
   if (
