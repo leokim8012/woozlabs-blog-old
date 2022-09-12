@@ -9,7 +9,7 @@
     </v-row>
 
     <v-row v-if="recommendFeeds.length > 0">
-      <v-col cols="12" v-for="feed in recommendFeeds" :key="feed">
+      <v-col cols="12" v-for="feed in recommendFeeds" :key="feed.id">
         <feed-card-container :data="feed" />
       </v-col>
     </v-row>
@@ -27,6 +27,8 @@
 import { Component, Vue } from "vue-property-decorator";
 import FeedCardContainer from "@/containers/Feeds/FeedCardContainer.vue";
 import { ArticleBaseInterface } from "@/types/article";
+
+import * as articleAPI from "@/api/Contents/Articles";
 @Component({
   components: { FeedCardContainer },
 })
@@ -34,6 +36,22 @@ export default class RecommendFeedsContainer extends Vue {
   recommendFeeds: Array<ArticleBaseInterface> = [];
 
   isLoaded = false;
+
+  async mounted() {
+    this.isLoaded = false;
+    await this._initialize();
+    this.isLoaded = true;
+  }
+
+  async _initialize() {
+    try {
+      this.recommendFeeds = await articleAPI.getRecommendArticles({
+        limit: 3,
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }
 }
 </script>
 

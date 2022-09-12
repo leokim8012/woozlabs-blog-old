@@ -13,7 +13,7 @@ const instance = axios.create({
 instance.interceptors.request.use(
   function (config) {
     if (config.headers) {
-      config.headers.authorization = "qwerqwer";
+      config.headers.authorization = "token";
       return config;
     }
   },

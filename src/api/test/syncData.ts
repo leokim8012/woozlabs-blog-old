@@ -30,6 +30,7 @@ export const articleData: Array<Article.ArticleBaseInterface> = [
     createdAt: new Date(2021, 12, 29),
     updatedAt: new Date(2021, 12, 29),
     views: 0,
+    recommend: true,
   },
 ];
 

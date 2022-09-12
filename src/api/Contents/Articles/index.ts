@@ -20,27 +20,37 @@ export const getArticleById = async (
 };
 
 interface GetArticlesInterface {
-  offset: number;
+  offset?: number;
   limit: number;
-  order: string;
-  sort: "desc" | "asc";
-  category?: string;
+  order?: string;
+  sort?: "desc" | "asc";
+  search?: [string, string];
 }
 export const getArticleCollection = async (
   options: GetArticlesInterface,
 ): Promise<Array<ArticleBaseInterface>> => {
-  if (
-    options.offset == null ||
-    options.limit == null ||
-    options.order == null ||
-    options.sort == null
-  )
+  if (options.limit == null || options.order == null || options.sort == null)
     throw new Error("No Parameters");
   try {
     const res: AxiosResponse<
       Array<ArticleBaseInterface>,
       Array<ArticleBaseInterface>
     > = await http.get(`contents/articles`, { params: options });
+    const data = res.data;
+    return data;
+  } catch (e) {
+    throw e as Error;
+  }
+};
+export const getRecommendArticles = async (
+  options: GetArticlesInterface,
+): Promise<Array<ArticleBaseInterface>> => {
+  if (options.limit == null) throw new Error("No Parameters");
+  try {
+    const res: AxiosResponse<
+      Array<ArticleBaseInterface>,
+      Array<ArticleBaseInterface>
+    > = await http.get(`contents/articles/recommend`, { params: options });
     const data = res.data;
     return data;
   } catch (e) {
@@ -55,6 +65,24 @@ export const createArticle = async (
   try {
     const res: AxiosResponse<string, string> = await http.post(
       `contents/articles`,
+      article,
+    );
+    const data = res.data;
+    console.log(data);
+    return data;
+  } catch (e) {
+    throw e as Error;
+  }
+};
+
+export const updateArticle = async (
+  id: string,
+  article: ArticleBaseInterface,
+): Promise<string> => {
+  if (!article) throw new Error("No Parameters");
+  try {
+    const res: AxiosResponse<string, string> = await http.put(
+      `contents/articles/${id}`,
       article,
     );
     const data = res.data;

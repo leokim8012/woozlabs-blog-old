@@ -12,6 +12,7 @@ declare namespace Article {
     subtitle: string;
     views: number;
     articleId: string;
+    recommend?: boolean;
     createdAt?: Date;
     updatedAt?: Date;
   }

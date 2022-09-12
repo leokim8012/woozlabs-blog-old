@@ -43,7 +43,7 @@ export default class PageAppbar extends Mixins(RouterPush) {
   async syncData() {
     articleData.map(async (data) => {
       try {
-        await articlesAPI.createArticle(data);
+        await articlesAPI.updateArticle(data.id, data);
       } catch (e) {
         console.log(e);
       }

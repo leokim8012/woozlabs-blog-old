@@ -65,7 +65,6 @@ export default class ArchiveRecommendArticleContainer extends Vue {
     this.isLoaded = false;
     this.articles = await articleAPI.getArticleCollection({
       limit: 6,
-      offset: 0,
       order: "createdAt",
       sort: "asc",
     });
