@@ -63,7 +63,12 @@ export default class ArchiveRecommendArticleContainer extends Vue {
 
   async mounted() {
     this.isLoaded = false;
-    this.recommendedArticles = await articleAPI.getArticles();
+    this.recommendedArticles = await articleAPI.getArticles({
+      limit: 6,
+      offset: 0,
+      order: "createdAt",
+      sort: "asc",
+    });
     this.isLoaded = true;
   }
 }

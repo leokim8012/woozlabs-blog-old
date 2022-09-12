@@ -36,7 +36,7 @@ export default class ArticleContentViewer extends Vue {
 
   async mounted() {
     this.isLoaded = false;
-    this.blockMap = await getPageBlocks(this.getNotionURL(this.notionURL));
+    this.blockMap = await getPageBlocks(this.notionURL);
     this.isLoaded = true;
   }
 

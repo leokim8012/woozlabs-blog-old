@@ -1,11 +1,11 @@
 import axios from "axios";
-import store from "store/index";
+// import store from "store/index";
 
 const instance = axios.create({
   baseURL:
     process.env.NODE_ENV === "production"
       ? "https://us-west2-woozlabs.cloudfunctions.net/"
-      : "http://localhost:5001/",
+      : "http://localhost:5001/woozlabs/us-central1/blog/",
   timeout: 10000,
   headers: { "X-Custom-Header": "foobar" },
 });
@@ -13,7 +13,7 @@ const instance = axios.create({
 instance.interceptors.request.use(
   function (config) {
     if (config.headers) {
-      config.headers.authorization = store.getters["auth/user/GET_TOKEN"];
+      config.headers.authorization = "qwerqwer";
       return config;
     }
   },

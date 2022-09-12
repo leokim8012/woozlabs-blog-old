@@ -43,7 +43,12 @@ export default class RecentFeedsContainer extends Vue {
   }
 
   async _initialize() {
-    this.recentFeeds = await articleAPI.getArticles();
+    this.recentFeeds = await articleAPI.getArticles({
+      limit: 6,
+      offset: 0,
+      order: "createdAt",
+      sort: "asc",
+    });
   }
 }
 </script>

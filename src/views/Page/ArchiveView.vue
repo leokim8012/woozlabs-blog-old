@@ -29,7 +29,12 @@ export default class ArchiveView extends Mixins(RouterPush) {
 
   async _initialize() {
     this.isLoaded = false;
-    this.articles = await articleAPI.getArticles();
+    this.articles = await articleAPI.getArticles({
+      limit: 6,
+      offset: 0,
+      order: "createdAt",
+      sort: "asc",
+    });
 
     this.isLoaded = true;
   }

@@ -4,13 +4,16 @@ export as namespace Article;
 declare namespace Article {
   interface ArticleBaseInterface {
     id: string;
-    imageURL: string;
-    title: string;
+    category: string;
+    imageUrl: string;
+    filePath: string;
     author: string;
-    createdAt?: Date;
-    description?: string;
-    articleId: string;
+    title: string;
+    subtitle: string;
     views: number;
+    articleId: string;
+    createdAt?: Date;
+    updatedAt?: Date;
   }
 }
 

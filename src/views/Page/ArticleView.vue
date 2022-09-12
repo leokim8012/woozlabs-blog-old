@@ -94,14 +94,18 @@ export default class ArticleView extends Mixins(RouterPush) {
 
   async _initialize() {
     this.isLoaded = false;
-    this.article = await articleAPI.getArticleById(this.id);
-    window.addEventListener(
-      "scroll",
-      () => {
-        this.offsetTop = window.pageYOffset;
-      },
-      false,
-    );
+    try {
+      this.article = await articleAPI.getArticleById(this.id);
+      window.addEventListener(
+        "scroll",
+        () => {
+          this.offsetTop = window.pageYOffset;
+        },
+        false,
+      );
+    } catch (e) {
+      console.log(e);
+    }
     this.isLoaded = true;
   }
 

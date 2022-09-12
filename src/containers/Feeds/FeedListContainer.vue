@@ -14,7 +14,7 @@
         {{ data.title }}
       </v-list-item-title>
       <v-list-item-subtitle v-if="$vuetify.breakpoint.smAndUp" class="px-0">{{
-        data.description
+        data.subtitle
       }}</v-list-item-subtitle>
       <v-list-item-subtitle class="px-0">
         {{ $dayjs(data.createdAt).format("MM. DD. YYYY") }}
@@ -24,7 +24,7 @@
       <image-card-container
         class="article-image"
         :data="{
-          src: data.imageURL,
+          src: data.imageUrl,
           minWidth: 120,
         }"
       />
@@ -33,7 +33,7 @@
       <image-card-container
         class="article-image"
         :data="{
-          src: data.imageURL,
+          src: data.imageUrl,
           minWidth: 240,
         }"
       />
