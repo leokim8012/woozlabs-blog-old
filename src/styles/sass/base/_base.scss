@@ -27,3 +27,13 @@ img {
   -o-user-drag: none;
   user-drag: none;
 }
+
+.side-panel {
+  position: sticky;
+  top: 64px;
+  position: -webkit-sticky;
+  position: sticky;
+  overflow-y: auto;
+  height: calc(100vh - 64px);
+  padding-top: 64px;
+}

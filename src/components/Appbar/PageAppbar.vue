@@ -16,9 +16,9 @@
     </v-app-bar-title>
     <v-spacer></v-spacer>
 
-    <v-btn class="rounded-lg" @click="syncData()" icon :ripple="false">
+    <!-- <v-btn class="rounded-lg" @click="syncData()" icon :ripple="false">
       <vue-feather type="terminal" />
-    </v-btn>
+    </v-btn> -->
     <v-btn
       class="rounded-lg"
       @click="routerPush('Archive')"
@@ -27,9 +27,9 @@
     >
       <vue-feather type="archive" />
     </v-btn>
-    <v-btn class="rounded-lg" icon :ripple="false">
+    <!-- <v-btn class="rounded-lg" icon :ripple="false">
       <vue-feather size="20" type="search" />
-    </v-btn>
+    </v-btn> -->
   </v-app-bar>
 </template>
 

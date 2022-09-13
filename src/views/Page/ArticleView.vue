@@ -41,7 +41,7 @@
         <v-col cols="6" class="text-end">
           <v-btn class="rounded-lg" depressed large :ripple="false">
             <span class="mr-2"><vue-feather size="16" type="mail" /></span>
-            의견
+            댓글
           </v-btn>
         </v-col>
       </v-row>

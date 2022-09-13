@@ -14,7 +14,7 @@
         >
           <v-btn
             @click="toggle"
-            class="title mr-2 pa-6"
+            class="title mr-2 pa-6 mt-2"
             depressed
             rounded
             :color="active ? 'secondary lighten-1' : 'surface'"

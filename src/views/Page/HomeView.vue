@@ -1,10 +1,23 @@
 <template>
   <v-container class="base-container">
     <v-row>
-      <v-col cols="12" sm="8">
+      <v-col
+        v-if="$vuetify.breakpoint.mdAndUp"
+        :class="'side-panel'"
+        cols="12"
+        md="3"
+      >
+        <!-- <recommend-feeds-container /> -->
+      </v-col>
+      <v-col cols="12" sm="8" md="6">
         <recent-feeds-container />
       </v-col>
-      <v-col cols="12" sm="4">
+      <v-col
+        :class="$vuetify.breakpoint.smAndUp ? 'side-panel' : ''"
+        cols="12"
+        sm="4"
+        md="3"
+      >
         <recommend-feeds-container />
       </v-col>
     </v-row>
@@ -27,3 +40,4 @@ export default class Home extends Vue {}
 </script>
 
 <style scoped></style>
+3

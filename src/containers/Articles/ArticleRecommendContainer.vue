@@ -32,7 +32,7 @@ import { Component, Vue } from "vue-property-decorator";
 import FeedCardContainer from "@/containers/Feeds/FeedCardContainer.vue";
 import { ArticleBaseInterface } from "@/types/article";
 
-// import * as articleAPI from "@/api/Contents/Articles";
+import * as articleAPI from "@/api/Contents/Articles";
 @Component({
   components: { FeedCardContainer },
 })
@@ -42,12 +42,10 @@ export default class ArticleRecommendContainer extends Vue {
 
   async mounted() {
     this.isLoaded = false;
+    this.recommendedArticles = await articleAPI.getRecommendArticles({
+      limit: 6,
+    });
 
-    // this.recommendedArticles = await articleAPI.getArticleCollection({
-    //   limit: 6,
-    //   order: "createdAt",
-    //   sort: "asc",
-    // });
     this.isLoaded = true;
   }
 }
