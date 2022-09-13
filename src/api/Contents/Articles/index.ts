@@ -19,22 +19,29 @@ export const getArticleById = async (
   }
 };
 
-interface GetArticlesInterface {
+interface RequestArticlesInterface {
   offset?: number;
   limit: number;
   order?: string;
   sort?: "desc" | "asc";
   search?: [string, string];
 }
+interface ResponseArticlesInterface {
+  totalCount: number;
+  items: Array<ArticleBaseInterface>;
+}
 export const getArticleCollection = async (
-  options: GetArticlesInterface,
-): Promise<Array<ArticleBaseInterface>> => {
+  options: RequestArticlesInterface,
+): Promise<{
+  totalCount: number;
+  items: Array<ArticleBaseInterface>;
+}> => {
   if (options.limit == null || options.order == null || options.sort == null)
     throw new Error("No Parameters");
   try {
     const res: AxiosResponse<
-      Array<ArticleBaseInterface>,
-      Array<ArticleBaseInterface>
+      ResponseArticlesInterface,
+      ResponseArticlesInterface
     > = await http.get(`contents/articles`, { params: options });
     const data = res.data;
     return data;
@@ -43,7 +50,7 @@ export const getArticleCollection = async (
   }
 };
 export const getRecommendArticles = async (
-  options: GetArticlesInterface,
+  options: RequestArticlesInterface,
 ): Promise<Array<ArticleBaseInterface>> => {
   if (options.limit == null) throw new Error("No Parameters");
   try {

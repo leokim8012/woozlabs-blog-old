@@ -34,7 +34,7 @@ export const articleData: Array<Article.ArticleBaseInterface> = [
   {
     id: "image-style-transfer",
     author: "Kwanwoo",
-    category: "Develop",
+    category: "Research",
     filePath: "Articles/ml-adam/thumnail/optimizers7.gif",
     imageUrl:
       "https://firebasestorage.googleapis.com/v0/b/woozlabs.appspot.com/o/Post%2FseNG50DNdOqoURLlxEd6%2Fthumbnail%2Fthe_scream.jpg?alt=media&token=5999f697-b8d5-4292-814d-6d0ba738fde0",
@@ -81,15 +81,15 @@ export const articleData: Array<Article.ArticleBaseInterface> = [
   {
     id: "vue-seo-friendly",
     author: "Kwanwoo",
-    category: "ML",
+    category: "Develop",
     filePath: "",
     imageUrl:
-      "https://firebasestorage.googleapis.com/v0/b/woozlabs.appspot.com/o/Post%2FcRvN4bhHtSsr7ZhNVv4b%2Fthumbnail%2Fimg.png?alt=media&token=6d6abda7-0a5a-4955-890f-d1d393def57b",
-    articleId: "cc0a09e33dda4d5f929d885dcd178613",
-    title: "01. MLOps: Project Settings",
-    subtitle: "Basics of MLOps using basic vision project.",
-    createdAt: new Date(2021, 12, 11),
-    updatedAt: new Date(2021, 12, 11),
+      "https://firebasestorage.googleapis.com/v0/b/woozlabs.appspot.com/o/Post%2FhRhfHJwdNhRrzN9jCbW0%2Fthumbnail%2FVue_SEO.png?alt=media&token=9715f55d-589b-4faa-8f62-5af65e288421",
+    articleId: "02ce25bf2e094b2b993f662d140c938e",
+    title: "Creating SEO-friendly SPA with Vue.js + Firebase",
+    subtitle: "Creating SEO-friendly SPA with Vue.js + Firebase.",
+    createdAt: new Date(2022, 3, 11),
+    updatedAt: new Date(2022, 3, 11),
     views: 0,
     recommend: false,
   },
@@ -99,12 +99,12 @@ export const articleData: Array<Article.ArticleBaseInterface> = [
     category: "ML",
     filePath: "",
     imageUrl:
-      "https://firebasestorage.googleapis.com/v0/b/woozlabs.appspot.com/o/Post%2FhRhfHJwdNhRrzN9jCbW0%2Fthumbnail%2FVue_SEO.png?alt=media&token=9715f55d-589b-4faa-8f62-5af65e288421",
-    articleId: "02ce25bf2e094b2b993f662d140c938e",
-    title: "Creating SEO-friendly SPA with Vue.js + Firebase",
-    subtitle: "Creating SEO-friendly SPA with Vue.js + Firebase.",
-    createdAt: new Date(2022, 3, 16),
-    updatedAt: new Date(2022, 3, 16),
+      "https://firebasestorage.googleapis.com/v0/b/woozlabs.appspot.com/o/Post%2FcRvN4bhHtSsr7ZhNVv4b%2Fthumbnail%2Fimg.png?alt=media&token=6d6abda7-0a5a-4955-890f-d1d393def57b",
+    articleId: "cc0a09e33dda4d5f929d885dcd178613",
+    title: "01. MLOps: Project Settings",
+    subtitle: "Basics of MLOps using basic vision project.",
+    createdAt: new Date(2021, 12, 16),
+    updatedAt: new Date(2021, 12, 16),
     views: 0,
     recommend: false,
   },
@@ -143,7 +143,7 @@ export const articleData: Array<Article.ArticleBaseInterface> = [
   {
     id: "bayesian-probability",
     author: "Kwanwoo",
-    category: "Mathmatics",
+    category: "Mathematics",
     filePath: "",
     imageUrl:
       "https://firebasestorage.googleapis.com/v0/b/woozlabs.appspot.com/o/Post%2FRb2haDX6ts4pVvtwzGnP%2Fthumbnail%2Fformula-bayes-theorem.png?alt=media&token=90c93026-184a-48d8-8af3-043f849e3ae4",
@@ -174,7 +174,7 @@ export const articleData: Array<Article.ArticleBaseInterface> = [
   {
     id: "kl-divergence",
     author: "Kwanwoo",
-    category: "Mathmatics",
+    category: "Mathematics",
     filePath: "",
     imageUrl:
       "https://firebasestorage.googleapis.com/v0/b/woozlabs.appspot.com/o/Post%2FDCdikRVyrxb3RcAjyAw3%2Fthumbnail%2Fmarketing%20expectations%20vs%20reality.png?alt=media&token=09be0683-6fe0-486a-ac91-1de2419bc79d",

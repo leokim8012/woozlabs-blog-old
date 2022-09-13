@@ -11,7 +11,7 @@
       </v-list-item-subtitle>
       <v-list-item-title
         style="white-space: normal"
-        class="article-title font-weight-bold pt-0 px-0"
+        class="article-title subtitle-1 font-weight-bold pt-0 px-0"
       >
         {{ data.title }}
       </v-list-item-title>
