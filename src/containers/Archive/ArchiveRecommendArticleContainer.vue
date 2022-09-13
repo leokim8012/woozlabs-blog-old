@@ -10,7 +10,7 @@
           v-for="article in recommendedArticles"
           :key="article.id"
         >
-          <feed-card-container :data="article" />
+          <feed-card-container :options="{ subtitle: false }" :data="article" />
         </v-col>
       </v-row>
       <!-- <v-row v-else>Not prepared yet!</v-row> -->

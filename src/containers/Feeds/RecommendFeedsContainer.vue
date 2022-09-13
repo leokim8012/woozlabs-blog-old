@@ -10,7 +10,7 @@
 
     <v-row v-if="recommendFeeds.length > 0">
       <v-col cols="12" v-for="feed in recommendFeeds" :key="feed.id">
-        <feed-card-container :data="feed" />
+        <feed-card-container :options="{ subtitle: false }" :data="feed" />
       </v-col>
     </v-row>
     <v-row v-else>

@@ -15,7 +15,9 @@
     <v-card-title class="article-title font-weight-bold pt-0 px-0">
       {{ data.title }}
     </v-card-title>
-    <v-card-subtitle class="px-0">{{ data.subtitle }}</v-card-subtitle>
+    <v-card-subtitle v-if="options.subtitle" class="px-0">
+      {{ data.subtitle }}
+    </v-card-subtitle>
     <v-card-text class="px-0">
       {{ $dayjs(data.createdAt).format("MM. DD. YYYY") }}
     </v-card-text>
@@ -34,6 +36,17 @@ import { ArticleBaseInterface } from "@/types/article";
 export default class FeedCardContainer extends Mixins(RouterPush) {
   @Prop({ required: true })
   data!: ArticleBaseInterface;
+
+  @Prop({
+    default: () => {
+      return {
+        subtitle: true,
+      };
+    },
+  })
+  options!: {
+    subtitle: boolean;
+  };
 }
 </script>
 
