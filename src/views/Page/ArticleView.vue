@@ -71,6 +71,7 @@ import ArticleContentViewer from "@/containers/Articles/ArticleContentViewer.vue
 import ArticleRecommendContainer from "@/containers/Articles/ArticleRecommendContainer.vue";
 
 import * as articleAPI from "@/api/Contents/Articles";
+import setMeta from "@/utils/setMeta";
 @Component({
   components: { ArticleContentViewer, ArticleRecommendContainer },
 })
@@ -96,6 +97,11 @@ export default class ArticleView extends Mixins(RouterPush) {
     this.isLoaded = false;
     try {
       this.article = await articleAPI.getArticleById(this.id);
+
+      setMeta({
+        title: this.article.title,
+        description: this.article.subtitle,
+      });
 
       window.addEventListener(
         "scroll",
