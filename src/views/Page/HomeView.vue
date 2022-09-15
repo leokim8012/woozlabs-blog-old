@@ -29,6 +29,7 @@ import { Component, Vue } from "vue-property-decorator";
 import RecommendFeedsContainer from "@/containers/Feeds/RecommendFeedsContainer.vue";
 
 import RecentFeedsContainer from "@/containers/Feeds/RecentFeedsContainer.vue";
+import setMeta from "@/utils/setMeta";
 
 @Component({
   components: {
@@ -36,7 +37,11 @@ import RecentFeedsContainer from "@/containers/Feeds/RecentFeedsContainer.vue";
     RecommendFeedsContainer,
   },
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  mounted() {
+    setMeta({ title: "Home", description: "Study with me!" });
+  }
+}
 </script>
 
 <style scoped></style>
