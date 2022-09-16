@@ -11,7 +11,7 @@ export const getArticleById = async (
   if (!id) throw new Error("No Parameters");
   try {
     const res: AxiosResponse<ArticleBaseInterface, ArticleBaseInterface> =
-      await http.get(`contents/articles/${id}`);
+      await http.get(`blog-contents/articles/${id}`);
     const data = res.data;
     return data;
   } catch (e) {
@@ -42,7 +42,7 @@ export const getArticleCollection = async (
     const res: AxiosResponse<
       ResponseArticlesInterface,
       ResponseArticlesInterface
-    > = await http.get(`contents/articles`, { params: options });
+    > = await http.get(`blog-contents/articles`, { params: options });
     const data = res.data;
     return data;
   } catch (e) {
@@ -57,7 +57,7 @@ export const getRecommendArticles = async (
     const res: AxiosResponse<
       Array<ArticleBaseInterface>,
       Array<ArticleBaseInterface>
-    > = await http.get(`contents/articles/recommend`, { params: options });
+    > = await http.get(`blog-contents/articles/recommend`, { params: options });
     const data = res.data;
     return data;
   } catch (e) {
@@ -71,7 +71,7 @@ export const createArticle = async (
   if (!article) throw new Error("No Parameters");
   try {
     const res: AxiosResponse<string, string> = await http.post(
-      `contents/articles`,
+      `blog-contents/articles`,
       article,
     );
     const data = res.data;
@@ -89,7 +89,7 @@ export const updateArticle = async (
   if (!article) throw new Error("No Parameters");
   try {
     const res: AxiosResponse<string, string> = await http.put(
-      `contents/articles/${id}`,
+      `blog-contents/articles/${id}`,
       article,
     );
     const data = res.data;

@@ -39,7 +39,7 @@ import setMeta from "@/utils/setMeta";
 })
 export default class Home extends Vue {
   mounted() {
-    setMeta({ title: "Home", description: "Study with me!" });
+    setMeta({ title: "Home", description: "Make Imagination True." });
   }
 }
 </script>

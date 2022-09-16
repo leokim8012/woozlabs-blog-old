@@ -4,8 +4,8 @@ import axios from "axios";
 const instance = axios.create({
   baseURL:
     process.env.NODE_ENV === "production"
-      ? "https://us-central1-woozlabs.cloudfunctions.net/blog/"
-      : "http://localhost:5001/woozlabs/us-central1/blog/",
+      ? "https://us-central1-woozlabs.cloudfunctions.net/"
+      : "http://localhost:5001/woozlabs/us-central1/",
   timeout: 10000,
   headers: { "X-Custom-Header": "foobar" },
 });

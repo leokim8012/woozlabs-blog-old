@@ -14,12 +14,15 @@ import { Component, Mixins } from "vue-property-decorator";
 import RouterPush from "@/mixins/routerPush";
 import ArchiveRecommendArticleContainer from "@/containers/Archive/ArchiveRecommendArticleContainer.vue";
 import ArchiveArticleListContainer from "@/containers/Archive/ArchiveArticleListContainer.vue";
+import setMeta from "@/utils/setMeta";
 
 @Component({
   components: { ArchiveRecommendArticleContainer, ArchiveArticleListContainer },
 })
 export default class ArchiveView extends Mixins(RouterPush) {
-  isLoaded = false;
+  mounted() {
+    setMeta({ title: "Archive", description: "Make Imagination True." });
+  }
 }
 </script>
 
