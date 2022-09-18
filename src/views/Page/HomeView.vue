@@ -11,6 +11,13 @@
       </v-col>
       <v-col cols="12" sm="8" md="6">
         <recent-feeds-container />
+        <v-btn
+          class="rounded-lg"
+          @click="routerPush('Archive')"
+          :ripple="false"
+        >
+          Read more 👀
+        </v-btn>
       </v-col>
       <v-col
         :class="$vuetify.breakpoint.smAndUp ? 'side-panel' : ''"
@@ -25,11 +32,12 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Mixins } from "vue-property-decorator";
 import RecommendFeedsContainer from "@/containers/Feeds/RecommendFeedsContainer.vue";
 
 import RecentFeedsContainer from "@/containers/Feeds/RecentFeedsContainer.vue";
 import setMeta from "@/utils/setMeta";
+import RouterPush from "@/mixins/routerPush";
 
 @Component({
   components: {
@@ -37,7 +45,7 @@ import setMeta from "@/utils/setMeta";
     RecommendFeedsContainer,
   },
 })
-export default class Home extends Vue {
+export default class Home extends Mixins(RouterPush) {
   mounted() {
     setMeta({ title: "Home", description: "Make Imagination True." });
   }
