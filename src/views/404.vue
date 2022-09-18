@@ -32,7 +32,7 @@ import setMeta from "@/utils/setMeta";
 @Component({
   components: {},
 })
-export default class HomePage extends Mixins(RouterPush) {
+export default class NotFound extends Mixins(RouterPush) {
   mounted() {
     setMeta({ title: "404", description: "Page Not Found" });
   }
