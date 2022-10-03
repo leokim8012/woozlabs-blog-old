@@ -94,12 +94,19 @@ export default class ArchiveRecommendArticleContainer extends Vue {
   isLoaded = false;
   articles: Array<ArticleBaseInterface> = [];
 
-  categories = ["All", "Develop", "Research", "ML", "Mathematics"];
+  categories = [
+    "All",
+    "Research",
+    "ML",
+    "Computer Graphics",
+    "Mathematics",
+    "Develop",
+  ];
   currentCategoryIndex = 0;
   currentPage = 1;
   pageCount = 0;
   itemsPerPage = 4;
-  totalCount = 14;
+  totalCount = 0;
 
   syncOptions: {
     order: string;
