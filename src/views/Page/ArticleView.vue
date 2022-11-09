@@ -64,7 +64,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Mixins, Prop } from "vue-property-decorator";
+import { Component, Mixins, Prop, Watch } from "vue-property-decorator";
 import RouterPush from "@/mixins/routerPush";
 import Article from "@/types/article";
 import ArticleContentViewer from "@/containers/Articles/ArticleContentViewer.vue";
@@ -81,6 +81,13 @@ export default class ArticleView extends Mixins(RouterPush) {
   })
   id!: string;
 
+  @Watch("id")
+  async onIdChange(newId: string, oldId: string) {
+    if (newId !== oldId) {
+      this._initialize(newId);
+    }
+  }
+
   isLoaded = false;
   article!: Article.ArticleBaseInterface;
   offsetTop = 0;
@@ -90,13 +97,13 @@ export default class ArticleView extends Mixins(RouterPush) {
   }
 
   mounted() {
-    this._initialize();
+    this._initialize(this.id);
   }
 
-  async _initialize() {
+  async _initialize(_id: string) {
     this.isLoaded = false;
     try {
-      this.article = await articleAPI.getArticleById(this.id);
+      this.article = await articleAPI.getArticleById(_id);
 
       setMeta({
         title: this.article.title,
