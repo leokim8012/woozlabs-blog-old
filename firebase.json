@@ -1,0 +1,28 @@
+{
+  "hosting": {
+    "public": "dist",
+    "target": "blog",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "/sitemap.xml",
+        "function": "blog-seo-sitemap"
+      },
+      {
+        "source": "/archive",
+        "function": "blog-seo-og"
+      },
+      {
+        "source": "/article/*",
+        "function": "blog-seo-og"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "remoteconfig": {
+    "template": "remoteconfig.template.json"
+  }
+}
